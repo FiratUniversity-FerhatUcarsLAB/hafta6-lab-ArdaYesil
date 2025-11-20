@@ -1,8 +1,8 @@
 /*
 [Adı Soyad : Arda Yeşil]
 [ Numarası : 250542013 ]
-[ ödev 1   : tamamlandı ]
-[ Öğrenciden 2 not 1 ödev verilerini alarak kalma durumunu , harf notu gibi şeyleri hesapladık ]
+[ ödev 2   : tamamlandı ]
+[ Sinema bileti alan birinden bilgilerini alarak indirimler yapılarak biletin fiyatını hesaplıyoz ]
   */
 import java.util.Scanner;
 
@@ -173,3 +173,4 @@ public static void main(String[] args) {
     
 }
 }
+
