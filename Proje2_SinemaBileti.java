@@ -2,6 +2,7 @@
 [Adı Soyad : Arda Yeşil]
 [ Numarası : 250542013 ]
 [ ödev 2   : tamamlandı ]
+[Teslim Tarihi : 26.11.2025]
 [ Sinema bileti alan birinden bilgilerini alarak indirimler yapılarak biletin fiyatını hesaplıyoz ]
   */
 import java.util.Scanner;
@@ -177,3 +178,4 @@ public static void main(String[] args) {
     
 }
 }
+
