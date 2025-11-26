@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class SinemaBiletiiFiyatlandirma{
 
 
-public static boolean günKontrol(int günSayısı){
+public static boolean günKontrol(int günSayısı){ //Seçilen gün hafta içimi hafta sonumu kontrolü
     switch (günSayısı) {
         case 1:
             return true;
@@ -30,14 +30,14 @@ public static boolean günKontrol(int günSayısı){
     }
 }
 
-public static boolean saatKontrol(int saat){
+public static boolean saatKontrol(int saat){//saat 12 den öncemi sonramı kontrolü
     if(saat<12)
     return true;
     else
     return false;
 }
 
-public static double temelFiyatHesapla(boolean  gün, boolean  saat){
+public static double temelFiyatHesapla(boolean  gün, boolean  saat){//Gün ve saate göre fiyatlandırma
     if(gün == true && saat==true)
     return 45;
     if(gün == true && saat==false)
@@ -48,7 +48,7 @@ public static double temelFiyatHesapla(boolean  gün, boolean  saat){
     return 85;
 }
 
-public static double indirimHesapla(int yas,int meslek,int gün){
+public static double indirimHesapla(int yas,int meslek,int gün){//Yaşa , Mesleğe , Güne göre indirim belirleme
     if(yas<12)
     return 25;
     else if(yas>65)
@@ -62,22 +62,22 @@ public static double indirimHesapla(int yas,int meslek,int gün){
     return 0;
 }
 
-public static double filmExtra(int filmTürü){
+public static double filmExtra(int filmTürü){//Seçilen film türüne göre extraları ekleme
     switch (filmTürü) {
         case 1:
-            return 0;
+            return 0;//2D
         case 2:
-            return 25;
+            return 25;//3D
         case 3:
-            return 35;
+            return 35;//IMAX
         case 4:
-            return 50;
+            return 50;//4DX
         default:
             return 0;
     }
 }
 
-public static double ToplamFiyat(double indirim,double filmExtra,double temelFiyat){
+public static double ToplamFiyat(double indirim,double filmExtra,double temelFiyat){//Son fiyatı belirleme
     if(indirim!=0)
     {
         
@@ -88,7 +88,7 @@ public static double ToplamFiyat(double indirim,double filmExtra,double temelFiy
     }
 }
 
-public static void biletBilgi(double indirim,double temelFiyat,int filmTürü,boolean saat,boolean gün,int meslek,double toplamFiyat,double extraÜcret){
+public static void biletBilgi(double indirim,double temelFiyat,int filmTürü,boolean saat,boolean gün,int meslek,double toplamFiyat,double extraÜcret,int yas){//Bilgileri ekrana yazdırma
     double netIndirim=0,indirimliFiyat;
     if(indirim!=0)
     netIndirim=temelFiyat-(temelFiyat*indirim/100);
@@ -109,7 +109,11 @@ public static void biletBilgi(double indirim,double temelFiyat,int filmTürü,bo
     System.out.println("Oğrenci indirimi : %"+indirim+" -> "+indirimliFiyat+" TL");
     else if(meslek==2)
     System.out.println("Öğretmen indirimi: %"+indirim+" -> "+indirimliFiyat+" TL");
-    if(meslek==1||meslek==2)
+    else if(yas<12)
+    System.out.println("Çocuk indirimi: %"+indirim+" -> "+indirimliFiyat+" TL");
+    else if(yas>65)
+    System.out.println("Yaşlı indirimi: %"+indirim+" -> "+indirimliFiyat+" TL");
+    if(meslek==1||meslek==2 || yas<12 || yas>65)
     System.out.println("İndirimli Fiyat  : "+netIndirim+" TL");
     if(filmTürü==2)
     System.out.println("3D ekstra        : "+extraÜcret+" TL");
@@ -167,10 +171,9 @@ public static void main(String[] args) {
         toplamFiyat=ToplamFiyat(indirim, extraÜcret, temelFiyat);
 
 
-        biletBilgi(indirim, temelFiyat, filmTürü, kontrolSaat, kontrolGün,meslek,toplamFiyat,extraÜcret);
+        biletBilgi(indirim, temelFiyat, filmTürü, kontrolSaat, kontrolGün,meslek,toplamFiyat,extraÜcret,yas);
         input.close();
     
     
 }
 }
-
