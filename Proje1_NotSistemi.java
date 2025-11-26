@@ -2,6 +2,7 @@
 [Adı Soyad : Arda Yeşil]
 [ Numarası : 250542013 ]
 [ ödev 1   : tamamlandı ]
+[Teslim Tarihi : 26.11.2025]
 [ Öğrenciden 2 not 1 ödev verilerini alarak kalma durumunu , harf notu gibi şeyleri hesapladık ]
   */
 
@@ -75,3 +76,4 @@ public class ödevyap {
         input.close();
 }
 }
+
